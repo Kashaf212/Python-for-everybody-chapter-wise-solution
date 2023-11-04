@@ -1,0 +1,27 @@
+Statement
+
+(Advanced) Change the socket program so that it only shows
+data after the headers and a blank line have been received. Remember
+that recv receives characters (newlines and all), not lines.
+
+
+Solution
+
+import socket
+my_sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+url=input("Enter a URL: ")
+link=url.split("/")
+host_name=link[2]
+my_sock.connect((host_name,80))
+cmd=f"GET {url} HTTP/1.0\r\n\r\n".encode()
+my_sock.send(cmd)
+data=my_sock.recv(1024)
+message=data.decode()
+header_end_pos=message.find("\r\n\r\n")+4
+print(message[header_end_pos:],end="")
+
+while True:
+    data=my_sock.recv(1024)
+    if len(data)==0: break
+
+my_sock.close()
