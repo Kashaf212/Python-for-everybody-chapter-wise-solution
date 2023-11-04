@@ -1,0 +1,7 @@
+import re
+f=open("C:\code\mbox.txt")
+for lines in f:
+    line = lines.rstrip()
+    y = re.findall("[a-zA-Z0-9]\S*@\S*[a-zA-Z]", line)
+    if len(y)>0:
+       print(y)
