@@ -7,17 +7,10 @@ the or logical operator with a single if statement
 
 Solution
 
-f=open("C:\code\Romeo.txt","r")
-list_of_unique_words=[]
-list_of_words=[]
-for lines in f:
-    words=lines.split()
-    for word in words:
-        if word not in list_of_unique_words[0:]:
-          list_of_unique_words.append(word)
-        else:
-          list_of_words.append(word)
-list_of_unique_words.sort()
-list_of_words.sort()
-print(list_of_unique_words)
-print(list_of_words)
+fhand = open('C:\code\mbox-short.txt')
+count = 0
+for line in fhand:
+     words = line.split()
+     if len(words)<=2 or not line.startswith("From"):
+          continue
+     print(words[2])
