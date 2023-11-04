@@ -1,0 +1,11 @@
+Statement
+
+Given that fruit is a string, what does fruit[:] mean?
+
+
+Solution
+
+string="fruit"
+lette=string[:]
+print(lette)
+
