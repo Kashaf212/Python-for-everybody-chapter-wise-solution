@@ -1,0 +1,14 @@
+handle = open("C:\code\mbox-short.txt")
+hour=dict()
+num=list()
+for lines in handle:
+    if lines.startswith("From "):
+        line=lines.split()
+        word=line[5]
+        hours=word.split(":")
+        hour[hours[0]]=hour.get(hours[0],0)+1
+for keys,values in hour.items():
+    num.append((keys,values))
+num.sort()
+for keys,values in num:
+    print(keys,values)
