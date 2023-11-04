@@ -1,0 +1,5 @@
+# Define a string variable
+text = "The quick brown fox jumps over the lazy dog."
+text=text.lower()
+string=text.find("fox")
+print(string)
