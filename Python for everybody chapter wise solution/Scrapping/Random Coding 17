@@ -1,0 +1,28 @@
+## Getting an image
+
+import socket
+import time
+my_sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+count=0
+Host="data.pr4e.org"
+Port=80
+my_sock.connect((Host,Port))
+my_sock.sendall ("GET http://data.pr4e.org/cover3.jpg HTTP/1.0\r\n\r\n".encode())
+
+picture= "".encode()
+while True:
+    data=my_sock.recv(5120)
+    if len(data)<1: break
+    time.sleep(0.25)
+    count=count+len(data)
+    print(count,len(data))
+    picture=picture+data
+my_sock.close()
+pos=picture.find("\r\n\r\n".encode())
+print("header length:",pos)
+print(picture[:pos].decode())
+picture=picture[pos+4:]
+f=open("c://code/Stuff.jpg","wb")
+f.write(picture)
+f.close()
+
