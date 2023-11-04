@@ -1,0 +1,25 @@
+handle = open("C:\code\mbox-short.txt")
+
+
+num = list()
+no_of_mails = dict()
+for lines in handle:
+    if lines.startswith("From "):
+        line = lines.split()
+
+        word = line[1]
+        no_of_mails[word] = no_of_mails.get(word, 0) + 1
+for key, value in no_of_mails.items():
+    num.append((value,key))
+num.sort(reverse=True)
+maximum = num[0][0]
+max_emails = []
+for value, key in num:
+    if value == maximum:
+        max_emails.append(key)
+    else:
+        break
+
+# Print the email address(es) with the maximum frequency of occurrence
+for email in sorted(max_emails):
+    print(email, maximum)
