@@ -1,0 +1,24 @@
+Statement
+
+Write another program that prompts for a list of numbers
+as above and at the end prints out both the maximum and minimum of
+the numbers instead of the average.
+
+
+Solution
+
+num=[]
+total=0
+count=0
+while True:
+    number=input("Enter a number:")
+    try:
+         if number=="done":
+             print(total,count,max(num),min(num))
+             break
+         number=int(number)
+         num.append(number)
+         total=total+number
+         count=count+1
+    except:
+        print("Invalid Input")
