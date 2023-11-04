@@ -1,0 +1,32 @@
+Statement
+
+Change your socket program so that it counts the number
+of characters it has received and stops displaying any text after it has
+shown 3000 characters. The program should retrieve the entire document and count the total number of characters and display the count
+of the number of characters at the end of the document.
+
+
+Solution
+
+import socket
+my_sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+url=input("Enter a url: ")
+size=0
+try:
+    link=url.split("/")
+    host_name=link[2]
+    my_sock.connect((host_name,80))
+    cmd=f"GET {url} HTTP/1.0\r\n\r\n".encode()
+    my_sock.send(cmd)
+    while True:
+        data=my_sock.recv(5120)
+        info=data.decode()
+        if len(info)>0:
+            print(info[:3000])
+        if len(info)==0:
+            break
+        size=size+len(info)
+    print(size,"no. of characters")
+    my_sock.close()
+except:
+    print("invalid url link")
