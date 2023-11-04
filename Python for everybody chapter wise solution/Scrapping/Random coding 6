@@ -1,0 +1,12 @@
+import xml.etree.ElementTree as ET
+data='''<person>
+    <name>chuck</name>
+    <phone type="int">
+       +92 8757398
+    </phone>
+    <email hide="yes"></email>
+</person>'''
+
+tree=ET.fromstring(data)
+print("name:",tree.find("name").text)
+print("attr:",tree.find("email").get("hide"))
