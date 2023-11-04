@@ -1,0 +1,7 @@
+## Import image
+
+import urllib.request
+f=urllib.request.urlopen("http://data.pr4e.org/cover3.jpg").read()
+file=open("C://code/cover3.jpg","wb")
+file.write(f)
+file.close()
