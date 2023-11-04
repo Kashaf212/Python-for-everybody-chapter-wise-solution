@@ -1,0 +1,10 @@
+## Removing special Characters
+
+
+import re
+f=open("C:\code\mbox.txt")
+for lines in f:
+    line=lines.rstrip()
+    x=re.findall("\S+@\S+",line)
+    if len(x)>0:
+        print(x)
