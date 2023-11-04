@@ -1,0 +1,7 @@
+import re
+f=open("C:\code\mbox.txt")
+for lines in f:
+    line=lines.rstrip()
+    x=re.findall("^From .* ([0-9][0-9]:\S+)",line)
+    if len(x)>0:
+        print(x)
