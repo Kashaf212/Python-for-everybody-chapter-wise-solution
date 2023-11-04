@@ -1,0 +1,24 @@
+Statement
+
+ Rewrite your pay computation with time-and-a-half for overtime and create a function called computepay which takes two parameters
+(hours and rate).
+Enter Hours: 45
+Enter Rate: 10
+Pay: 475.0
+
+
+
+Solution
+
+def computency(hours,hourly_rate):
+
+
+    if int(hours)>40:
+          rate=1.5*int(hourly_rate)*(int(hours)-40)
+          pay_package=(40*float(hourly_rate))+rate
+    else:
+        pay_package = int(hours) * float(hourly_rate)
+    return pay_package
+
+pay_package=computency(45,10)
+print(pay_package)
