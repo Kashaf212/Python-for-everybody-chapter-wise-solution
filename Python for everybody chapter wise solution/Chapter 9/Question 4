@@ -1,0 +1,33 @@
+Statement
+
+Add code to the above program to figure out who has the
+most messages in the file. After all the data has been read and the dictionary has been created, look through the dictionary using a maximum
+loop (see Chapter 5: Maximum and minimum loops) to find who has
+the most messages and print how many messages the person has.
+Enter a file name: mbox-short.txt
+cwen@iupui.edu 5
+Enter a file name: mbox.txt
+zqian@umich.edu 195
+
+
+Solution
+
+file_name=input("Enter a file name:")
+email_counting=dict()
+try:
+    f=open(file_name)
+except:
+    print("can't open the file")
+    quit()
+for lines in f:
+    if lines.startswith("From:"):
+           words=lines.split()
+           email_counting[words[1]]=email_counting.get(words[1],0)+1
+emails=list(email_counting.values())
+emails.sort()
+print(emails)
+for values in emails:
+    maximum=max(emails)
+for keys,values in email_counting.items():
+    if values==maximum:
+        print(keys,maximum)
