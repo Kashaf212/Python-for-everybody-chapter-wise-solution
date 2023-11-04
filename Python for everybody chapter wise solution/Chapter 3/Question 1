@@ -1,0 +1,18 @@
+Statement
+
+Rewrite your pay computation to give the employee 1.5
+times the hourly rate for hours worked above 40 hours.
+
+Solution
+
+hours = input("Enter hour:")
+hourly_rate = input("Enter rate per hour:")
+
+if int(hours)>40:
+    rate=1.5*int(hourly_rate)*(int(hours)-40)
+    pay = float(hourly_rate) * 40
+    pay=pay+rate
+    print(pay)
+else:
+    pay=int(hours)*int(hourly_rate)
+    print(pay)
