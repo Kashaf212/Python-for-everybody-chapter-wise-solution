@@ -1,0 +1,12 @@
+Statement
+
+ Write a program to prompt the user for hours and rate per
+hour to compute gross pay.
+
+
+Solution:
+
+hours=input("Enter hours:")
+rate_per_hours=input("Enter rate:")
+pay=float(rate_per_hours)*int(hours)
+print(pay)
