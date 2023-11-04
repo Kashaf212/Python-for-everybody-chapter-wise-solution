@@ -1,0 +1,11 @@
+Statement
+
+Write a program which prompts the user for a Celsius temperature, convert the temperature to Fahrenheit, and print out the
+converted temperature.
+
+
+Solution
+
+temp_cel=input("temp in celcius:")
+F=(9/5*int(temp_cel))+32
+print("farenheit",(F))
