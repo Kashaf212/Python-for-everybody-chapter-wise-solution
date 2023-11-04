@@ -1,0 +1,17 @@
+import json
+data='''[
+         { "x":"2",
+           "id":"000",
+           "name":"chuck"
+         },
+         {"x":"4",
+         "id":"978",
+         "name":"noah"
+         }
+]'''
+info=json.loads(data)
+print("User count:",len(info))
+for users in info:
+    print("Name:",users["name"])
+    print("id:",users["id"])
+    print("x:",users["x"])
