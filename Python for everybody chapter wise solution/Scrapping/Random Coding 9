@@ -1,0 +1,6 @@
+import re
+f=open("C:\code\mbox.txt")
+for lines in f:
+    line=lines.rstrip()
+    if re.search("^F.+:",line):
+        print (line)
