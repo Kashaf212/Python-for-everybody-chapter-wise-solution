@@ -1,0 +1,24 @@
+Statement
+
+Use urllib to replicate the previous exercise of (1) retrieving
+the document from a URL, (2) displaying up to 3000 characters, and
+(3) counting the overall number of characters in the document. Don’t
+worry about the headers for this exercise, simply show the first 3000
+characters of the document contents
+
+
+Solution
+
+import urllib.request, urllib.parse,urllib.error
+f=urllib.request.urlopen("https://data.pr4e.org/romeo.txt")
+count=0
+
+for lines in f:
+    line=lines.decode().strip()
+    total=count+len(line)
+    if len(line)>0:
+        print(line[:3000])
+    if len(line)==0: break
+    count=total
+print(count,"characters are there in romeo.txt")
+
