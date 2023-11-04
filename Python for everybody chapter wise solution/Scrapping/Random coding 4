@@ -1,0 +1,14 @@
+import urllib.request,urllib.parse,urllib.error
+from PIL import image
+image_data=urllib.request.urlopen("http://data.pr4e.org/cover3.jpg")
+img=image.open(image_data).read()
+f=open("C://code/bookcover.jpg","wb")
+size=0                                 ###error error error while importing image....print section does  working
+while True:
+    info=image_data.read(100000)
+    if len(info)<1: break
+    size=size+len(info)
+f.write(img)
+print(size,"no. of characters")
+img.show()
+f.close()
