@@ -1,0 +1,16 @@
+Statement
+
+Encapsulate this code in a function named count, and generalize it so that it accepts the string and the letter as arguments.
+
+Solution
+
+string=input("Enter a string:")
+letter=input("Enter a letter:")
+
+def countletter():
+    count=0
+    for words in string:
+        if words==letter:
+            count=count+1
+    return count
+print('count:',countletter())
